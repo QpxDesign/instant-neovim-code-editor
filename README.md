@@ -10,6 +10,7 @@ This repository contains a bash script that will install a preconfigured and rea
 - Neovim
 
 ### Usage 
+Clone the repo: `git clone https://github.com/qpxdesign/instant-neovim-code-editor`
 To run the script, just type `sudo bash run.sh` in your terminal. 
 
 ### Attributions
