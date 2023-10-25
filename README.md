@@ -1,5 +1,7 @@
-### Instant Neovim Code Editor
-#### One-Command Setup of Neovim Complete with VS Code Features & Support for Dozens of Langagues
+## Instant Neovim Code Editor
+![example](https://github.com/qpxdesign/instant-neovim-code-editor/blob/main/images/demo.png?raw=true)
+
+### One-Command Setup of Neovim Complete with VS Code Features & Support for Dozens of Langagues
 
 #### What this is
 This repository contains a bash script that will install a preconfigured and ready-to-go advanced setup of Alacritty and Neovim that will allow you to make the switch from VSCode to Neovim almost instantly. It uses several pre-configured plugins and modifications (see below for attributions). It works on most Linux distros as well as MacOS.
