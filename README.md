@@ -9,7 +9,7 @@ This repository contains a bash script that will install a preconfigured and rea
 ### Prerequisites
 - Linux or MacOS (Currently Script Only Supports Latex Install on Mac)
 - Updated Git client (2.42.0+)
-- Alacritty
+- Alacritty (0.13.0+)
 - Neovim
 - Brew (only if using MacOS and want to install Latex Support)
 
