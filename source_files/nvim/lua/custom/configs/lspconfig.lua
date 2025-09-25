@@ -2,7 +2,14 @@ local config = require("plugins.configs.lspconfig")
 local on_attach = config.on_attach
 local capabilities = config.capabilities
 
-local lspconfig = require("lspconfig")
+local servers = {"ts_ls", "eslint"}
+
+--for _, lsp in ipairs(servers) do
+ --f vim.lsp.config[lsp].setup {
+--f   on_attach = on_attach,
+ --f   capabilities = capabilities,
+--f--f }
+--fend
 
 local function organize_imports()
   local params = {
@@ -12,7 +19,7 @@ local function organize_imports()
   vim.lsp.buf.execute_command(params)
 end
 
-lspconfig.tsserver.setup {
+vim.lsp.config("ts_ls", {
   on_attach = on_attach,
   capabilities = capabilities,
   init_options = {
@@ -26,8 +33,9 @@ lspconfig.tsserver.setup {
       description = "Organize Imports",
     }
   }
-}
-lspconfig.rust_analyzer.setup({
+})
+
+vim.lsp.config("rust_analyzer", {
   on_attach = on_attach,
   capabilities = capabilities,
   filetypes = {"rust"},

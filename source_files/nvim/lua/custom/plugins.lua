@@ -2,7 +2,10 @@ local plugins = {
   {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = {
+	"mfussenegger/nvim-dap",
+	"nvim-neotest/nvim-nio"
+    },
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
@@ -17,6 +20,13 @@ local plugins = {
         dapui.close()
       end
     end
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    ft = {"javascriptreact", "typescript", "typescriptreact"},
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
   },
   {
     "mfussenegger/nvim-dap",
@@ -52,12 +62,21 @@ local plugins = {
       ensure_installed = {
         "eslint-lsp",
         "js-debug-adapter",
-        "prettier",
         "typescript-language-server",
         "mason-lspconfig",
-        "rust-analyzer"
+        "rust-analyzer",
+        "bibtex-tidy",
+        "ltex-ls",
+        "tectonic",
       }
     }
+  },
+  {
+    "nvimtools/none-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -72,6 +91,20 @@ local plugins = {
     init = function ()
       vim.g.rustfmt_autosave = 1
     end
+  },
+ {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      local opts = require "plugins.configs.treesitter"
+      opts.ensure_installed = {
+        "lua",
+        "javascript",
+        "typescript",
+        "tsx",
+      }
+      return opts
+    end,
   }
+
 }
 return plugins
