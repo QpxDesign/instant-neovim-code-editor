@@ -35,7 +35,21 @@ fi
 if [[ "$OSTYPE" == "darwin"* ]]; then
     brew cask install basictex
     brew install fswatch
-    echo "alias newtex='bash ~/instant-neovim-code-editor/source_files/scripts/create_new_latex_project.sh' >> ~/.zshrc"
+    echo "alias newtex='bash ~/instant-neovim-code-editor/source_files/scripts/create_new_latex_project.sh'" >> ~/.zshrc
     echo "Installed Latex Dependencies and created new command 'newtex' to generate a project from a template."
 fi
+
+read -p "Install Handy Terminal Utilities (zoxide, zsh-autosuggestions, etc)? (y/n)" terminal_confirm
+if [ "$terminal_confirm" != "y"]; then
+    echo "Setup Complete!"
+    exit
+fi
+
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  brew install zoxide
+  brew install zsh-autosuggestions
+  echo "eval '\$(zoxide init zsh)'">> ~/.zshrc
+  echo "source \$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc
+fi
+
 echo "Setup Complete!"
